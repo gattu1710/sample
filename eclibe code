@@ -1,0 +1,363 @@
+package orang;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Apple {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\gattu\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+
+		driver.get("https://www.facebook.com/");
+		//find the locator
+		String userId="email";
+		//create a webelement
+		WebElement userName=driver.findElement(By.id(userId));
+		//perform action
+		userName.sendKeys("7204016588");
+
+
+      String passId="pass";
+
+		WebElement password=driver.findElement(By.id(passId));
+
+		password.sendKeys("9963286457");
+
+         String loginId="//*[@type=\"submit\"]";
+
+		WebElement loginButton=driver.findElement(By.xpath(loginId));
+
+		loginButton.click();
+
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package orang;
+
+import org.openqa.selenium.WebDriver;
+
+public class tamota {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+System.setProperty("webdriver.chrome.driver", "C:\\Users\\gattu\\Downloads\\chromedriver_win32//chromedriver.exe");
+
+	WebDriver driver=new chromedriver();
+
+	driver.manage().window().maximize();
+
+	driver.get("https://www.apollopharmacy.in/");
+
+
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[6:35 pm, 12/08/2021] +91 94913 83095:
+
+
+ package methods;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class IsSelected {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\softwares fpr selemium\\chromedriver_win32\\chromedriver.exe");		
+		WebDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+
+
+	//user id
+
+		String userId="txtUsername";
+		WebElement UserIdEle=driver.findElement(By.id(userId));
+		UserIdEle.sendKeys("Admin");
+
+		// password
+
+		String PasswordId="txtPassword";
+		WebElement PasswordIdEle=driver.findElement(By.id(PasswordId));
+		PasswordIdEle.sendKeys("admin123");
+
+		//loginbutton
+
+		String LoginId="btnLogin";
+		WebElement LoginNameEle=driver.findElement(By.id(LoginId));
+		LoginNameEle.click();
+
+
+		String LeaveTabXpath="//b[text()='Leave']";
+		WebElement LeaveTabXpathEle=driver.findElement(By.xpath(LeaveTabXpath));
+		LeaveTabXpathEle.click();
+
+
+		String FromDateId="calFromDate";
+		WebElement FromDateEle=driver.findElement(By.id(FromDateId));
+		FromDateEle.click();
+
+
+		String Year="2020";
+		//String Month="August";
+		//String Date="15";
+
+		String YearFromSelectXpath="//select[@class='ui-datepicker-year']";
+		WebElement YearFromSelectXpathELe=driver.findElement(By.xpath(YearFromSelectXpath));
+		Select YearDrop=new Select(YearFromSelectXpathELe);
+		YearDrop.selectByVisibleText(Year);
+
+
+		String MonthFromSelectXpath="//select[@class='ui-datepicker-month']";
+		WebElement MonthFromSelectXpathELe=driver.findElement(By.xpath(MonthFromSelectXpath));
+		Select MonthDrop=new Select(MonthFromSelectXpathELe);
+		MonthDrop.selectByIndex(7);
+
+
+
+		String DateFromSelectXpath="//a[@class='ui-state-default' and contains(text(),'15')]";
+		WebElement DateFromSelectXpathELe=driver.findElement(By.xpath(DateFromSelectXpath));
+		//Select DateDrop=new Select(DateFromSelectXpathELe);
+		Thread.sleep(3000);
+		DateFromSelectXpathELe.click();
+		//To Date
+
+		String ToDateId="calToDate";
+		WebElement ToDateEle=driver.findElement(By.id(ToDateId));
+		ToDateEle.click();
+
+		String YearTo="2020";
+		//String DateTo="20";
+
+		String YearToSelectXpath="//select[@class='ui-datepicker-year']";
+		WebElement YearToSelectXpathELe=driver.findElement(By.xpath(YearToSelectXpath));
+		Select YearToDrop=new Select(YearToSelectXpathELe);
+		YearToDrop.selectByVisibleText(YearTo);
+
+
+		String MonthToSelectXpath="//select[@class='ui-datepicker-month']";
+		WebElement MonthToSelectXpathELe=driver.findElement(By.xpath(MonthToSelectXpath));
+		Select MonthToDrop=new Select(MonthToSelectXpathELe);
+		MonthToDrop.selectByIndex(7);
+
+
+
+		String DateToSelectXpath="//a[@class='ui-state-default' and contains(text(),'20')]";
+		WebElement DateToSelectXpathELe=driver.findElement(By.xpath(DateToSelectXpath));
+		//Select DateToDrop=new Select(DateToSelectXpathELe);
+		Thread.sleep(3000);
+		DateToSelectXpathELe.click();
+
+
+
+
+		String ShowLeaveWithStatusBoxId="leaveList_chkSearchFilter_checkboxgroup_allcheck";
+		WebElement ShowLeaveWithStatusBoxIdEle=driver.findElement(By.id(ShowLeaveWithStatusBoxId));
+		ShowLeaveWithStatusBoxIdEle.click();		
+		//ShowLeaveWithStatusBoxIdEle.isSelected();
+		if(ShowLeaveWithStatusBoxIdEle.isSelected()) {
+			System.out.println("Checkbox is selected.Return:" +ShowLeaveWithStatusBoxIdEle.isSelected());
+
+		}
+
+		else {
+
+			System.out.println("Checkbox is notselected.Return:" +ShowLeaveWithStatusBoxIdEle.isSelected());
+		}
+		 String strUrl = driver.getCurrentUrl();
+	      System.out.println("Current Url is:"+ strUrl);
+	}
+
+	}
+[6:35 pm, 12/08/2021] +91 94913 83095: console
+[6:35 pm, 12/08/2021] +91 94913 83095: Checkbox is selected.Return:true
+Current Url is:https://opensource-demo.orangehrmlive.com/index.php/leave/viewLeaveList
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+package gssk;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Jai {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\gattu\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+
+		driver.get("https://www.gmail.com/");
+
+		String userId="identifierId";
+
+		WebElement username=driver.findElement(By.id(userId));
+
+		username.sendKeys("gattu.suvarnasaikrishna@gmail.com");
+
+		//@SuppressWarnings("unused")
+		//String loginid="//*[@id=\"identifierNext\"]/div/button/div[2]";
+
+		WebElement next=driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button"));
+
+		next.click();
+		// WebElement login = driver.findElement(By.id("SubmitLogin"));
+		//*[@id="identifierNext"]/div/button
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+package Example;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class test1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\gattu\\eclipse-workspace\\Sample\\Drivers\\chromedriver.exe");
+
+		WebDriver driver=new ChromeDriver() ;
+
+		driver.manage().window().maximize();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+
+		String userId="txtUsername";
+
+		WebElement userName=driver.findElement(By.id(userId));
+
+		userName.sendKeys("Admin");
+
+
+		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+
+		String logId="btnLogin";
+
+		WebElement logInId=driver.findElement(By.id(logId));
+
+		logInId.click();
+
+		String adminName="//*[@id=\"menu_admin_viewAdminModule\"]/b";
+
+        WebElement adminId=driver.findElement(By.xpath(adminName));
+
+
+        adminId.click();
+
+         String employeeId="searchSystemUser_userName";		
+		WebElement employeeName=driver.findElement(By.id(employeeId));
+
+		employeeName.sendKeys("arivand");
+
+		String userRoleId="searchSystemUser_userType";
+
+		WebElement usreroleName=driver.findElement(By.id(userRoleId));
+
+
+		Select drop=new Select(usreroleName);
+
+		drop.selectByValue("2");
+
+
+
+
+	}
+
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+package Example;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+/*		System.out.println("Hello world");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\gattu\\eclipse-workspace\\Sample\\Drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		driver.findElement(By.id("email")).sendKeys("7204016588");
+		driver.findElement(By.id("pass")).sendKeys("9963286457");
+		//driver.findElement(By.id("loginbutton"))*/
+
+	     //Initialize array  
+ /*       int [] arr = new int [] {25, 11, 7, 75, 56,2099999999};  
+        //Initialize max with first element of array.  
+        int max = arr[0];  
+        //Loop through the array  
+        for (int i = 0; i < arr.length; i++) {  
+            //Compare elements of array with max  
+           if(arr[i] > max)  
+               max = arr[i];  
+        }  
+        System.out.println("Largest element present in given array: " + max);      
+        */
+
+		int i,m=0,flag=0;      
+		  int n=999;//it is the number to be checked    
+		  m=n/2;      
+		  if(n==0||n==1){  
+		   System.out.println(n+" is not prime number");      
+		  }else{  
+		   for(i=2;i<=m;i++){      
+		    if(n%i==0){      
+		     System.out.println(n+" is not prime number");      
+		     flag=1;      
+		     break;      
+		    }      
+		   }      
+		   if(flag==0)  { System.out.println(n+" is prime number"); }  
+		  }//end of else  
+
+
+
+	}
+
+}
